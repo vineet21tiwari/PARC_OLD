@@ -3,6 +3,11 @@ Rails.application.routes.draw do
  get 'signup', to: 'users#new'
  get 'admin', to: 'admins#show'
  get 'lessons', to: 'lessons#show'
+ resources :lessons do
+   collection do
+     get :lesson1
+   end
+ end
  resources :users, except: [:new]
  get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'

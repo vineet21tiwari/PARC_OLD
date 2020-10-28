@@ -5,7 +5,9 @@ class LessonsController < ApplicationController
     
   end
 
-  
+  def lesson1
+    
+  end
     
   
 end
