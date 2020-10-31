@@ -774,8 +774,9 @@ src="../ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js">
   <option value="#"> - Select Lesson -</option>
       <option value="/online-course">Introduction</option>
      
-     <option value="/lesson-1">Lesson 1</option>
-      
+     
+     
+      <option >	<%= link_to "Lesson 1", lesson1_lessons_path%></option>
       <option value="/lesson-2">Lesson 2</option>
       <option value="/lesson-3">Lesson 3</option>
       <option value="/lesson-4">Lesson 4</option>
@@ -802,11 +803,18 @@ src="../ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js">
 </style>
 <div id="desktop">
 	<p> <label for="file">Progress Report:</label>
-	<progress id="file" value="<%= current_user.lesson1 %>" max="15"> 32% </progress> </p>
+	<progress id="file" value="<%= current_user.lesson1 + current_user.lesson2 %>" max="15"> </progress> <%= (((current_user.lesson1+current_user.lesson2)*100)/15.to_f).round(1) %>%</p>
+	
+	
+	
+	
+	
+	
+	
   <p><a href="online-course.html"><font color="#3d9991">Introduction</font></a></p>
   
 <p> <%= link_to "Lesson 1", lesson1_lessons_path, class: "lessons"%> </p>
-<p><a href="lesson-2.html"><font color="#3d9991">Lesson 2</font></a></p>
+<p> <%= link_to "Lesson 2", lesson2_lessons_path, class: "lessons"%> </p>
 <p><a href="lesson-3.html"><font color="#3d9991">Lesson 3</font></a></p>
 <p><a href="lesson-4.html"><font color="#3d9991">Lesson 4</font></a></p>
 <p><a href="lesson-5.html"><font color="#3d9991">Lesson 5</font></a></p>

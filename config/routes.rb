@@ -6,6 +6,7 @@ Rails.application.routes.draw do
  resources :lessons do
    collection do
      get :lesson1
+     get :lesson2
    end
  end
  resources :users, except: [:new]

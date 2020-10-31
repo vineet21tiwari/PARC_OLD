@@ -26,55 +26,15 @@
                                                 <th class="center"> Occupation </th>
                                                 <th class="center"> Organization </th>
                                                 <th class="center"> Lesson 1 </th>
+                                                <th class="center"> Lesson 2 </th>
                                                 <th class="center"> Action </th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                        	<% if logged_in? %>
- 
- <script type="text/javascript">
-var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-179508141-1']);
-_gaq.push(['_setDomainName', 'none']);
-_gaq.push(['_setAllowLinker', 'true']);
-_gaq.push(['_trackPageview']);
-
-(function() {
-var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-})();
-</script>
-<% end %>
+                                        
                                         	
                                         	
-                                        	<% if logged_in? %>
-                                        	<h1> Logged in users</h1>
-													<tr class="odd gradeX">
-														<td class="user-circle-img">
-																<img src="/assets/img/user/user1.jpg" alt="">
-														</td>
-														<td class="center"><%=current_user.id%></td>
-														<td class="center"><%=current_user.first_name%> &nbsp; <%=current_user.last_name%></td>
-														<td class="center"><%=current_user.phoneno%></td>
-														<td class="center"><%=current_user.email%></td>
-														<td class="center"><%=current_user.age%></td>
-														<td class="center"><%=current_user.city%></td>
-														<td class="center"><%=current_user.occupation%></td>
-														<td class="center"><%=current_user.organization%></td>
-														<td class="center"><%=current_user.lesson1%></td>
-														
-														
-														<td class="center">
-															<a href="edit_booking.html" class="btn btn-tbl-edit btn-xs">
-																<i class="fa fa-pencil"></i>
-															</a>
-															<button class="btn btn-tbl-delete btn-xs">
-																<i class="fa fa-trash-o "></i>
-															</button>
-														</td>
-													</tr>
-											<% else %>
+                                        	
 											<h1> All users</h1>
 											<% @users.each do |user| %>
 											
@@ -91,6 +51,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 														<td class="center"><%=user.occupation%></td>00
 														<td class="center"><%=user.organization%></td>
 														<td class="center"><%=user.lesson1%></td>
+														<td class="center"><%=user.lesson2%></td>
 														
 														
 														<td class="center">
@@ -104,7 +65,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 													</tr>
 											
 											<%end%>
-											<%end%>
+											
 											
 											
 										</tbody>
