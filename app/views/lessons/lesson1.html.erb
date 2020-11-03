@@ -776,7 +776,9 @@ src="../ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js">
 	<progress id="file" value="<%= current_user.lesson1 + current_user.lesson2 %>" max="15"> </progress> <%= (((current_user.lesson1+current_user.lesson2)*100)/15.to_f).round(1) %>%</p>
   <p><a href="online-course.html"><font color="#3d9991">Introduction</font></a></p>
   <p> <%= link_to "Lesson 1", lesson1_lessons_path, class: "lessons"%> </p>
+  
 <p> <%= link_to "Lesson 2", lesson2_lessons_path, class: "lessons"%> </p>
+
 <p><a href="lesson-3.html"><font color="#3d9991">Lesson 3</font></a></p>
 <p><a href="lesson-4.html"><font color="#3d9991">Lesson 4</font></a></p>
 <p><a href="lesson-5.html"><font color="#3d9991">Lesson 5</font></a></p>
@@ -807,62 +809,7 @@ src="../ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js">
         style="border: solid 4px #37474F"
 ></iframe>
 
-<script type="text/javascript">
-  var tag = document.createElement('script');
-  tag.id = 'iframe-demo';
-  tag.src = 'https://www.youtube.com/iframe_api';
-  var firstScriptTag = document.getElementsByTagName('script')[0];
-  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-  var player;
-  function onYouTubeIframeAPIReady() {
-    player = new YT.Player('existing-iframe-exampl', {
-        events: {
-          'onReady': onPlayerReady,
-          'onStateChange': onPlayerStateChange
-        }
-    });
-  }
-  function onPlayerReady(event) {
-    document.getElementById('existing-iframe-exampl').style.borderColor = '#FF6D00';
-  }
-  function changeBorderColor(playerStatus) {
-    var color;
-    var end;
-    
-    if (playerStatus == -1) {
-      color = "#37474F"; // unstarted = gray
-    } else if (playerStatus == 0) {
-      color = "#FFFF00";
-      end = 1;
-                 // ended = yellow
-    } else if (playerStatus == 1) {
-      color = "#33691E"; // playing = green
-    } else if (playerStatus == 2) {
-      color = "#DD2C00"; // paused = red
-    } else if (playerStatus == 3) {
-      color = "#AA00FF"; // buffering = purple
-    } else if (playerStatus == 5) {
-      color = "#FF6DOO"; // video cued = orange
-    }
-    if (color) {
-      document.getElementById('existing-iframe-exampl').style.borderColor = color;
-    }
-    if(end){
-    	
-    	alert("Congratulation, <%= current_user.first_name %>, your Lesson1 has completed");
-    	
-    	<%= current_user.update(lesson1: 1) %>
-    	end=0;
-    	playerStatus = -1;
-    	
-    	
-    }
-  }
-  function onPlayerStateChange(event) {
-    changeBorderColor(event.data);
-  }
-</script>
 </div>
 
 
@@ -1021,6 +968,87 @@ document.addEventListener("mousemove", function(e) {
    }  
 });
 </script><script type="text/javascript" data-sqs-type="imageloader-bootstrapper">(function() {if(window.ImageLoader) { window.ImageLoader.bootstrap({}, document); }})();</script><script>Squarespace.afterBodyLoad(Y);</script>
+<script src="Ajax.js"></script> 
+    <script src= 
+"https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity= 
+"sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"> 
+    </script> 
+      
+    <script src= 
+"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity= 
+"sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"> 
+    </script>
+    
+<script type="text/javascript">
+  var tag = document.createElement('script');
+  tag.id = 'iframe-demo';
+  tag.src = 'https://www.youtube.com/iframe_api';
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+  var player;
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player('existing-iframe-exampl', {
+        events: {
+          'onReady': onPlayerReady,
+          'onStateChange': onPlayerStateChange
+        }
+    });
+  }
+  function onPlayerReady(event) {
+    document.getElementById('existing-iframe-exampl').style.borderColor = '#FF6D00';
+  }
+  function changeBorderColor(playerStatus) {
+    var color;
+    var temp;
+   
+    if (playerStatus == -1) {
+      color = "#37474F"; // unstarted = gray
+    } else if (playerStatus == 0) {
+      color = "#FFFF00";
+      temp = 1;                // ended = yellow
+    } else if (playerStatus == 1) {
+      color = "#33691E"; // playing = green
+    } else if (playerStatus == 2) {
+      color = "#DD2C00"; // paused = red
+    } else if (playerStatus == 3) {
+      color = "#AA00FF"; // buffering = purple
+    } else if (playerStatus == 5) {
+      color = "#FF6DOO"; // video cued = orange
+    }
+    if (color) {
+      document.getElementById('existing-iframe-exampl').style.borderColor = color; 	
+    }
+    if(temp){
+    	alert("Congratulation, <%= current_user.first_name %>, your Lesson1 has completed");   	
+    	<% if current_user.lesson1 == 0 %>
+    	const xhr = new XMLHttpRequest(); 
+        xhr.open("GET", "http://localhost:3000/lessons/lesson1v", true); 
+        xhr.onload = function () { 
+        	console.log(this.status);
+        	console.log(this.statusText);
+            if (this.status === 200) { 
+  
+               console.log("req sent sucessfully");
+            } 
+            else { 
+                console.log("File not found"); 
+            } 
+        } 
+        
+        xhr.send(); 
+        <%end%>   	 	
+    }
+  }
+  function onPlayerStateChange(event) {
+    changeBorderColor(event.data);
+  }
+</script>
+
 
   </body>
 </html>

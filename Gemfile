@@ -26,6 +26,8 @@ gem 'jquery-rails'
 gem 'pusher'
 gem 'figaro'
 gem 'devise'
+gem 'rabl', '~> 0.14.3'
+gem 'gon'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
