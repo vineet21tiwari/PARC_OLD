@@ -772,24 +772,24 @@ src="../ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js">
 </style>
 <div id="desktop">
 	
-	<p> <label for="file">Progress Report:</label>
-	<progress id="file" value="<%= current_user.lesson1 + current_user.lesson2 %>" max="15"> </progress> <%= (((current_user.lesson1+current_user.lesson2)*100)/15.to_f).round(1) %>%</p>
-  <p><a href="online-course.html"><font color="#3d9991">Introduction</font></a></p>
-  <p><a href="lesson-1.html"><font color="#3d9991">Lesson 1</font></a></p>
-<p><a href="lesson-2.html"><font color="#3d9991">Lesson 2</font></a></p>
-<p><a href="lesson-3.html"><font color="#3d9991">Lesson 3</font></a></p>
-<p><a href="lesson-4.html"><font color="#3d9991">Lesson 4</font></a></p>
-<p><a href="lesson-5.html"><font color="#3d9991">Lesson 5</font></a></p>
-<p><a href="lesson-6.html"><font color="#3d9991">Lesson 6</font></a></p>
-<p><a href="lesson-7.html"><font color="#3d9991">Lesson 7</font></a></p>
-<p><a href="lesson-8.html"><font color="#3d9991">Lesson 8</font></a></p>
-<p><a href="lesson-9.html"><font color="#3d9991">Lesson 9</font></a></p>
-<p><a href="lesson-10.html"><font color="#3d9991">Lesson 10</font></a></p>
-<p><a href="lesson-11.html"><font color="#3d9991">Lesson 11</font></a></p>
-<p><a href="lesson-12.html"><font color="#3d9991">Lesson 12</font></a></p>
-<p><a href="lesson-13.html"><font color="#3d9991">Lesson 13</font></a></p>
-<p><a href="lesson-14.html"><font color="#3d9991">Lesson 14</font></a></p>
-<p><a href="lesson-15.html"><font color="#3d9991">Lesson 15</font></a></p>
+<p> <label for="file">Progress Report:</label>
+<progress id="file" value="<%= current_user.lesson1 + current_user.lesson2 %>" max="15"> </progress> <%= (((current_user.lesson1+current_user.lesson2)*100)/15.to_f).round(1) %>%</p>
+<p><a href="online-course.html"><font color="#3d9991">Introduction</font></a></p>
+<p> <%= link_to "Lesson 1", lesson1_lessons_path, class: "lessons"%> </p>
+<p> <%= link_to "Lesson 2", lesson2_lessons_path, class: "lessons"%> </p>
+<p> <%= link_to "Lesson 3", lesson3_lessons_path, class: "lessons"%> </p>
+<p> <%= link_to "Lesson 4", lesson4_lessons_path, class: "lessons"%> </p>
+<p> <%= link_to "Lesson 5", lesson5_lessons_path, class: "lessons"%></p>
+<p> <%= link_to "Lesson 6", lesson6_lessons_path, class: "lessons"%> </p>
+<p> <%= link_to "Lesson 7", lesson7_lessons_path, class: "lessons"%> </p>
+<p> <%= link_to "Lesson 8", lesson8_lessons_path, class: "lessons"%> </p>
+<p> <%= link_to "Lesson 9", lesson9_lessons_path, class: "lessons"%> </p>
+<p> <%= link_to "Lesson 10", lesson10_lessons_path, class: "lessons"%> </p>
+<p> <%= link_to "Lesson 11", lesson11_lessons_path, class: "lessons"%> </p>
+<p> <%= link_to "Lesson 12", lesson12_lessons_path, class: "lessons"%></p>
+<p> <%= link_to "Lesson 13", lesson13_lessons_path, class: "lessons"%> </p>
+<p> <%= link_to "Lesson 14", lesson14_lessons_path, class: "lessons"%> </p>
+<p> <%= link_to "Lesson 15", lesson15_lessons_path, class: "lessons"%> </p>
 <p><a href="final-assessment.html"><font color="#3d9991">Final Assessment</font></a></p>
 <p><a href="feedback.html"><font color="#3d9991">Contact Us</font></a></p>
 </div>
